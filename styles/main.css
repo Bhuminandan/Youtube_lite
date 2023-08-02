@@ -197,6 +197,7 @@ li:hover {
 }
 
 .video-short-details {
+  margin-top: 5px;
   display: flex;
   align-items: flex-start;
   height: calc(100% - 170px);
@@ -213,7 +214,7 @@ li:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0px;
   height: 100%;
 }
 
@@ -224,7 +225,6 @@ li:hover {
 
 .video-details2 {
   display: flex;
-  flex-direction: column;
   gap: 5px;
 }
 

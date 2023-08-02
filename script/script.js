@@ -55,6 +55,15 @@ searchBtn.addEventListener("click", () => {
 let initialVideoString = "Abhi and Niyu"
 
 
+let headerItems = document.querySelectorAll(".header__item");
+
+headerItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        getSearchResults(item.textContent);
+    })
+})
+
+
 /*
 @param {String} searchString
 */
@@ -87,7 +96,6 @@ function clearData() {
 
 async function createVideoCard(videoList) {
     clearData();
-    console.log(videoList);
     videoList.forEach((singleVideo) => {
 
         const {
@@ -195,3 +203,4 @@ async function createVideoCard(videoList) {
 
     })
 }
+
