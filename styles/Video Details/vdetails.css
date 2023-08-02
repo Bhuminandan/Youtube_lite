@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.container__left .video video {
+.container__left .video iframe {
   display: inline-block;
   width: 100%;
   height: 60vh;
@@ -385,7 +385,7 @@
     flex-wrap: wrap;
     gap: 20px;
   }
-  .container__left .video video {
+  .container__left .video iframe {
     display: inline-block;
     width: 100%;
     height: auto;

@@ -82,6 +82,7 @@ async function getSearchResults(searchString) {
         });
         const result = await response.json();
         createVideoCard(result.items);
+        console.log(result);
     } catch (data) {
         console.log(data)
     }
