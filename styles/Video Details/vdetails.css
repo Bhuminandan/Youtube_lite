@@ -8,6 +8,7 @@
 }
 .container__left {
   width: 70%;
+  padding: 10px 10px;
 }
 
 .container__left .video {
@@ -206,7 +207,7 @@
   background-color: #252525;
   outline: none;
   border: none;
-  padding: 1.5vh 1vw;
+  padding: 1.5vh 2vw;
   width: 100%;
   border-radius: 10px;
   font-size: 16px;
@@ -285,6 +286,8 @@
 
 .container__right {
   width: 30%;
+  margin-bottom: 4vh;
+  padding: 10px 10px;
 }
 
 .container-right-header .container-right-header-ul {
@@ -292,7 +295,6 @@
   align-items: center;
   list-style: none;
   gap: 20px;
-  border: 1px solid red;
   height: 5vh;
   margin-bottom: 3vh;
 }
@@ -326,6 +328,12 @@
   display: flex;
   align-items: top;
   gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.small-video-card:hover {
+  scale: 1.05;
 }
 
 .related-video-seggetions .left-div img {
@@ -354,4 +362,63 @@
   font-size: 12px;
   gap: 3px;
   color: #cccccc;
+}
+
+@media (max-width: 1430px) {
+  .conainer {
+    flex-wrap: wrap;
+    width: 90vw;
+  }
+  .container__left {
+    width: 100%;
+    padding: 0;
+  }
+
+  .container__right {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container__left .video-details-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .container__left .video video {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    margin-top: 2vh;
+    border-radius: 10px;
+  }
+
+  .video-details-description .first-row {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .channel-details-row .channel-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .channel-details-row .channel-name-sub .channel-name {
+    font-size: 14px;
+  }
+
+  .channel-details-row .channel-name-sub .channel-subs-count {
+    font-size: 12px;
+  }
+
+  .first-row-right button {
+    padding: 8px 16px;
+  }
+
+  .description-content {
+    margin-left: 4vw;
+    margin-bottom: 4vh;
+  }
 }
