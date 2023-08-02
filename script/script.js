@@ -132,11 +132,12 @@ async function createVideoCard(videoList) {
 
             let channelDetails = await getChannelDetails(channelId);
 
-            appendUi(channelDetails, vdetails);
+            appendUi(channelDetails, vdetails, videoId);
         }
+
         fetchVideoDetails(videoId);
 
-        function appendUi(channelDetails, vdetails) {
+        function appendUi(channelDetails, vdetails, videoId) {
 
             let uploadDate = vdetails.items[0].snippet.publishedAt;
 
@@ -198,9 +199,16 @@ async function createVideoCard(videoList) {
                                   </div>`
 
             videoCard.innerHTML = innerHtmlCard;
+            const newPageUrl = `vdetails.html?id=${videoId}`;
+            videoCard.addEventListener("click", function () {
+                // Navigate to the new HTML page when the video card is clicked
+                window.location.href = newPageUrl;
+            });
             videoGrid.appendChild(videoCard);
         }
 
+        
     })
+
 }
 

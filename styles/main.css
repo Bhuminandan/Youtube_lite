@@ -91,7 +91,7 @@ li:hover {
   height: 10vh;
   position: fixed;
   z-index: 90;
-  background-color: var(--lightDark-clr);
+  background-color: var(--dark-clr);
   border-top: var(--gray-clr);
   overflow-x: scroll;
 }

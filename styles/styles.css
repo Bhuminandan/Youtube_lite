@@ -18,7 +18,7 @@
 
 body,
 html {
-  background-color: var(--lightDark-clr);
+  background-color: var(--dark-clr);
 }
 
 .material-icons {
