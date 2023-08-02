@@ -23,6 +23,9 @@
 //               </div>
 //             </div>
 // `
+
+let videoGrid = document.querySelector(".main__right .main__video-grid")[0];
+console.log(videoGrid);
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
 
@@ -87,7 +90,6 @@ async function getSearchResults(searchString) {
     }
 }
 
-let videoGrid = document.querySelector(".main__video-grid");
 
 function clearData() {
     videoGrid.innerHTML = "";

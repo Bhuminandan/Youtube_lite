@@ -7,8 +7,7 @@ async function getVideoIdFromUrl() {
 let videoId;
 (async function() {
   try {
-    videoId = await getVideoIdFromUrl();
-    console.log(videoId); // Use the videoId value here or perform other operations with it
+    videoId = await getVideoIdFromUrl(); // Use the videoId value here or perform other operations with it
 
     // Rest of your code...
   } catch (error) {
