@@ -19,7 +19,7 @@
 
 // `
 
-
+let suggetionString;
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
 
@@ -39,197 +39,6 @@ mobSearchBtn.addEventListener("click", () => {
     let newPageUrl = "index.html"
     window.location.href = newPageUrl;
 })
-
-
-
-// let headerItems = document.querySelectorAll(".header__item");
-
-// headerItems.forEach((item) => {
-//     item.addEventListener("click", () => {
-//         getSearchResults(item.textContent);
-//     })
-// })
-
-// let videoGrid = document.getElementById("video-grid");
-
-// /*
-// @param {String} searchString
-// */
-
-
-// let initialVideoString = "AbhiandNiyu"
-
-// // const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
-// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
-// const baseUrl = `https://www.googleapis.com/youtube/v3`;
-
-// getSearchResults(initialVideoString.trim());
-
-// async function getSearchResults(searchString) {
-//     try {
-//         let url = `${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=10`
-//         const response = await fetch(url, {
-//             method: "GET"
-//         });
-//         const result = await response.json();
-//         createVideoCard(result.items);
-//     } catch (data) {
-//         console.log(data)
-//     }
-// }
-
-
-// // function clearData() {
-// //     videoGrid.innerHTML = "";
-// // }
-
-
-// async function createVideoCard(videoList) {
-//     // clearData();
-//     videoList.forEach((singleVideo) => {
-
-//         const {
-//             snippet
-//         } = singleVideo;
-
-
-
-//         // Grabbing the details of single video
-//         let videoId = singleVideo.id.videoId;
-//         async function fetchVideoDetails(videoId) {
-//             let vdetails;
-//             try {
-//                 let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`
-//                 let response = await fetch(url);
-//                 vdetails = await response.json();
-//             } catch (data) {
-//                 console.log(data)
-//             }
-//             // console.log(vdetails);
-
-//             let channelId = snippet.channelId;
-
-//             async function getChannelDetails(channelId) {
-//                 try {
-//                     let url = `${baseUrl}/channels?key=${apiKey}&part=snippet,contentDetails,statistics&id=${channelId}`
-//                     let response = await fetch(url);
-//                     let details = await response.json();
-//                     return details;
-//                 } catch (data) {
-//                     console.log(data)
-//                 }
-//             }
-
-//             try {let channelDetails = await getChannelDetails(channelId);
-
-//             appendUi(channelDetails, vdetails, videoId);
-//                 }catch (data) {
-//                     console.log(data)
-//                 }
-//         }
-
-//         fetchVideoDetails(videoId);
-
-//         function appendUi(channelDetails, vdetails, videoId) {
-//             let uploadDate
-//             try {uploadDate = vdetails.items[0].snippet.publishedAt;
-//                } catch (data) {
-//                 console.log(data);
-//                }
-
-//             function timeAgo(dateString) {
-//                 const date = new Date(dateString);
-//                 const currentDate = new Date();
-//                 const timeDifference = currentDate - date;
-//                 const seconds = Math.floor(timeDifference / 1000);
-//                 const minutes = Math.floor(seconds / 60);
-//                 const hours = Math.floor(minutes / 60);
-//                 const days = Math.floor(hours / 24);
-//                 const weeks = Math.floor(days / 7);
-//                 const months = Math.floor(days / 30);
-//                 const years = Math.floor(days / 365);
-
-//                 if (seconds < 60) {
-//                     return seconds === 1 ? '1 second ago' : `${seconds} seconds ago`;
-//                 } else if (minutes < 60) {
-//                     return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`;
-//                 } else if (hours < 24) {
-//                     return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
-//                 } else if (days < 7) {
-//                     return days === 1 ? '1 day ago' : `${days} days ago`;
-//                 } else if (weeks < 4) {
-//                     return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
-//                 } else if (months < 12) {
-//                     return months === 1 ? '1 month ago' : `${months} months ago`;
-//                 } else {
-//                     return years === 1 ? '1 year ago' : `${years} years ago`;
-//                 }
-//             }
-
-//             const humanReadableDate = timeAgo(uploadDate);
-//             const viewCount = formatViewCount(vdetails.items[0]?.statistics.viewCount);
-
-//             function formatViewCount(viewCount) {
-//                 if (viewCount >= 1000000) {
-//                   return `${Math.floor(viewCount / 1000000)}M •`;
-//                 } else if (viewCount >= 1000) {
-//                   return `${Math.floor(viewCount / 1000)}k •`;
-//                 } else {
-//                   return viewCount.toString();
-//                 }
-//               }
-
-//             let videoCard = document.createElement("div");
-//             videoCard.classList.add("video-card");
-//             let innerHtmlCard = `<div class="video-thumnail">
-//                                       <img src="${vdetails.items[0].snippet.thumbnails.high.url}" alt="Thumbnail" />
-//                                   </div>
-//                                   <div class="video-short-details">
-//                                       <div class="channel-logo">
-//                                       <img src="${channelDetails.items[0].snippet.thumbnails.default.url}" alt="channel logo" />
-//                                       </div>
-//                                       <div class="short-details">
-//                                       <div>
-//                                         <p class="video-title">
-//                                         ${vdetails.items[0].snippet.title}.
-//                                         </p>
-//                                       </div>
-//                                       <div class="video-details2">
-//                                           <p class="channel-name">${vdetails.items[0].snippet.channelTitle}</p>
-//                                           <div class="video-views-upload">
-//                                           <p class="views">${viewCount}</p>
-//                                           <p class="upload-date">${humanReadableDate}</p>
-//                                           </div>
-//                                       </div>
-//                                       </div>
-//                                   </div>`
-
-//             videoCard.innerHTML = innerHtmlCard;
-//             const newPageUrl = `vdetails.html`;
-//             videoCard.addEventListener("click", function () {
-//                 sessionStorage.setItem('videoId', `${videoId}`);
-//                 // Navigate to the new HTML page when the video card is clicked
-//                 window.location.href = newPageUrl;
-//             });
-//             videoGrid.appendChild(videoCard);
-//         }
-        
-//     })
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -328,7 +137,9 @@ let videoId = sessionStorage.getItem('videoId');
     
 
     const channelName = document.querySelector(".channel-name")
+    suggetionString = channelName;
     channelName.innerHTML = `${videoDetails.items[0].snippet.channelTitle}`
+
 
     const channelSubs = document.querySelector(".channel-subs-count")
     let subsCount = formatCount(channelInformation.items[0].statistics.subscriberCount)
@@ -431,4 +242,160 @@ showMoreBtn.addEventListener("click", () => {
 })}
 
 
+// ------------------------------ Video Side------------------
 
+const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
+const baseUrl = `https://www.googleapis.com/youtube/v3`;
+
+async function getSearchResults(searchString) {
+    try {
+        let url = `${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=5`
+        const response = await fetch(url, {
+            method: "GET"
+        });
+        const result = await response.json();
+        console.log(result.items);
+        createVideoCard(result.items);
+    } catch (data) {
+        console.log(data)
+    }
+}
+
+getSearchResults(suggetionString);
+
+
+
+let SmallvideoGrid = document.querySelector(".related-video-seggetions");
+
+
+function clearData() {
+    SmallvideoGrid.innerHTML = "";
+}
+
+
+async function createVideoCard(videoList) {
+    clearData();
+    console.log(videoList);
+    videoList.forEach((singleVideo) => {
+
+        const {
+            snippet
+        } = singleVideo;
+
+
+
+        // Grabbing the details of single video
+        let videoId = singleVideo.id.videoId;
+        async function fetchVideoDetails(videoId) {
+            let vdetails;
+            try {
+                let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`
+                let response = await fetch(url);
+                vdetails = await response.json();
+            } catch (data) {
+                console.log(data)
+            }
+            // console.log(vdetails);
+
+            let channelId = snippet.channelId;
+
+            async function getChannelDetails(channelId) {
+                try {
+                    let url = `${baseUrl}/channels?key=${apiKey}&part=snippet,contentDetails,statistics&id=${channelId}`
+                    let response = await fetch(url);
+                    let details = await response.json();
+                    return details;
+                } catch (data) {
+                    console.log(data)
+                }
+            }
+
+            try {let channelDetails = await getChannelDetails(channelId);
+
+            appendUi(channelDetails, vdetails, videoId);
+                }catch (data) {
+                    console.log(data)
+                }
+        }
+
+        fetchVideoDetails(videoId);
+
+        function appendUi(channelDetails, vdetails, videoId) {
+            let uploadDate
+            try {uploadDate = vdetails.items[0].snippet.publishedAt;
+               } catch (data) {
+                console.log(data);
+               }
+
+            function timeAgo(dateString) {
+                const date = new Date(dateString);
+                const currentDate = new Date();
+                const timeDifference = currentDate - date;
+                const seconds = Math.floor(timeDifference / 1000);
+                const minutes = Math.floor(seconds / 60);
+                const hours = Math.floor(minutes / 60);
+                const days = Math.floor(hours / 24);
+                const weeks = Math.floor(days / 7);
+                const months = Math.floor(days / 30);
+                const years = Math.floor(days / 365);
+
+                if (seconds < 60) {
+                    return seconds === 1 ? '1 second ago' : `${seconds} seconds ago`;
+                } else if (minutes < 60) {
+                    return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`;
+                } else if (hours < 24) {
+                    return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
+                } else if (days < 7) {
+                    return days === 1 ? '1 day ago' : `${days} days ago`;
+                } else if (weeks < 4) {
+                    return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+                } else if (months < 12) {
+                    return months === 1 ? '1 month ago' : `${months} months ago`;
+                } else {
+                    return years === 1 ? '1 year ago' : `${years} years ago`;
+                }
+            }
+
+            const humanReadableDate = timeAgo(uploadDate);
+            const viewCount = formatViewCount(vdetails.items[0]?.statistics.viewCount);
+
+            function formatViewCount(viewCount) {
+                if (viewCount >= 1000000) {
+                  return `${Math.floor(viewCount / 1000000)}M •`;
+                } else if (viewCount >= 1000) {
+                  return `${Math.floor(viewCount / 1000)}k •`;
+                } else {
+                  return viewCount.toString();
+                }
+              }
+
+            
+            let smallVideoCard = document.createElement("div");
+            smallVideoCard.classList.add("small-video-card");
+            let innerHtmlCard = `
+            <div class="left-div">
+              <img src="${vdetails.items[0].snippet.thumbnails.high.url}" />
+            </div>
+            <div class="right-div">
+              <div class="video-title">${vdetails.items[0].snippet.title}</div>
+              <div class="video-channel-name">${vdetails.items[0].snippet.channelTitle}</div>
+              <div class="video-details">
+                <div class="video-views">1M views</div>
+                <div class="video-upload-date">3 Years Ago</div>
+              </div>
+            </div>
+                  `
+
+            smallVideoCard.innerHTML = innerHtmlCard;
+            const newPageUrl = `vdetails.html`;
+            smallVideoCard.addEventListener("click", function () {
+                sessionStorage.setItem('videoId', `${videoId}`);
+                // Navigate to the new HTML page when the video card is clicked
+                window.location.href = newPageUrl;
+            });
+            SmallvideoGrid.appendChild(smallVideoCard);
+        }
+        
+    })
+
+}

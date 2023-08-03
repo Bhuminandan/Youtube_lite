@@ -29,7 +29,6 @@
 const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
-
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
 
