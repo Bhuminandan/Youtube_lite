@@ -13,6 +13,7 @@
 
 .container__left .video {
   width: 100%;
+  border-radius: 10px;
 }
 
 .container__left .video iframe {
@@ -148,6 +149,7 @@
   font-size: 14px;
   color: #b5b5b5;
   font-weight: 800;
+  cursor: pointer;
 }
 
 /* Comment section styling ------------------- */

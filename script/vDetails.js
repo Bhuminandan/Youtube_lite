@@ -48,6 +48,7 @@ let videoId = sessionStorage.getItem('videoId');
   // 4. The API will call this function when the video player is ready.
   function onPlayerReady(event) {
     event.target.playVideo();
+    executeOtherCode(videoId);
   }
 
   // 5. The API calls this function when the player's state changes.
@@ -64,10 +65,12 @@ let videoId = sessionStorage.getItem('videoId');
     player.stopVideo();
   }
 
-async function getVideoDetails(videoId) {
+  function executeOtherCode(videoId) {
+  async function getVideoDetails(videoId) {
   try {
     const baseUrl = 'https://www.googleapis.com/youtube/v3';
-    const apiKey = 'AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk'; // Replace with your API key
+    // const apiKey = 'AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk'; // Replace with your API key
+    const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
     let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
     let response = await fetch(url);
     let videoDetails = await response.json();
@@ -206,5 +209,5 @@ showMoreBtn.addEventListener("click", () => {
     isDesopen = true;
   }
 
-})
+})}
 
