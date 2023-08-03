@@ -24,8 +24,7 @@
 //             </div>
 // `
 
-let videoGrid = document.querySelector(".main__right .main__video-grid")[0];
-console.log(videoGrid);
+
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
 
@@ -55,7 +54,6 @@ searchBtn.addEventListener("click", () => {
     getSearchResults(searchString);
 })
 
-let initialVideoString = "Abhi and Niyu"
 
 
 let headerItems = document.querySelectorAll(".header__item");
@@ -66,13 +64,17 @@ headerItems.forEach((item) => {
     })
 })
 
+let videoGrid = document.querySelector(".main__right .main__video-grid");
+console.log(videoGrid);
+
 
 /*
 @param {String} searchString
 */
+let initialVideoString = "AbhiandNiyu"
 
-// const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
-const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
+// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
+const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
 getSearchResults(initialVideoString.trim());
