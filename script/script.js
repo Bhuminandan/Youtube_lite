@@ -64,14 +64,16 @@ headerItems.forEach((item) => {
     })
 })
 
-let videoGrid = document.querySelector(".main__video-grid");
+let videoGrid = document.getElementById("video-grid");
 console.log(videoGrid);
 
 
 /*
 @param {String} searchString
 */
-let initialVideoString = "AbhiandNiyu"
+
+
+let initialVideoString = "Abhi and Niyu"
 
 // const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
 const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
@@ -134,16 +136,22 @@ async function createVideoCard(videoList) {
                 }
             }
 
-            let channelDetails = await getChannelDetails(channelId);
+            try {let channelDetails = await getChannelDetails(channelId);
 
             appendUi(channelDetails, vdetails, videoId);
+                }catch (data) {
+                    console.log(data)
+                }
         }
 
         fetchVideoDetails(videoId);
 
         function appendUi(channelDetails, vdetails, videoId) {
-
-            let uploadDate = vdetails.items[0].snippet.publishedAt;
+            let uploadDate
+            try {uploadDate = vdetails.items[0].snippet.publishedAt;
+               } catch (data) {
+                console.log(data);
+               }
 
             function timeAgo(dateString) {
                 const date = new Date(dateString);
