@@ -77,12 +77,13 @@
 }
 
 .mob_search-div {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: rgb(37, 37, 37);
   user-select: none;
   display: none;
+  font-size: 15px;
 }
 
 @media (max-width: 768px) {
