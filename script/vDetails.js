@@ -63,20 +63,20 @@ console.log(videoId)
     player.stopVideo();
   }
 
-async function getVideoDetails(videoId) {
-  try {
-    const baseUrl = 'https://www.googleapis.com/youtube/v3';
-    const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your API key
-    let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
-    let response = await fetch(url);
-    let videoDetails = await response.json();
-    return videoDetails;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-}
+// async function getVideoDetails(videoId) {
+//   try {
+//     const baseUrl = 'https://www.googleapis.com/youtube/v3';
+//     const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your API key
+//     let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
+//     let response = await fetch(url);
+//     let videoDetails = await response.json();
+//     return videoDetails;
+//   } catch (error) {
+//     console.log(error);
+//     return null;
+//   }
+// }
 
-function displayVideoDetails(videoDetails) {
-  console.log(videoDetails);
-}
+// function displayVideoDetails(videoDetails) {
+//   console.log(videoDetails);
+// }

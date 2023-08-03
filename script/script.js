@@ -64,7 +64,7 @@ headerItems.forEach((item) => {
     })
 })
 
-let videoGrid = document.querySelector(".main-section");
+let videoGrid = document.querySelector(".main__video-grid");
 console.log(videoGrid);
 
 
@@ -203,7 +203,7 @@ async function createVideoCard(videoList) {
                                   </div>`
 
             videoCard.innerHTML = innerHtmlCard;
-            const newPageUrl = `vdetails.html?id=${videoId}`;
+            const newPageUrl = `vdetails.html`;
             videoCard.addEventListener("click", function () {
                 sessionStorage.setItem('videoId', `${videoId}`);
                 // Navigate to the new HTML page when the video card is clicked
