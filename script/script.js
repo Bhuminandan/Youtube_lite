@@ -61,7 +61,7 @@ function getSearchStringFromLocalStorage() {
       localStorage.removeItem('searchString');
       getSearchResults(searchString);
     } else{
-        let initialVideoString = "AbhiandNiyu"
+        let initialVideoString = "Videos Trending"
         getSearchResults(initialVideoString.trim());
     }
   }

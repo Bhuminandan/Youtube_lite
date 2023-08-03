@@ -201,7 +201,7 @@ li:hover {
   margin-top: 5px;
   display: flex;
   align-items: flex-start;
-  height: calc(100% - 170px);
+  height: 80px;
   gap: 10px;
 }
 
