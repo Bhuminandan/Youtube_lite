@@ -86,7 +86,6 @@ li:hover {
 }
 
 .main__catagory-header {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   width: 100vw;

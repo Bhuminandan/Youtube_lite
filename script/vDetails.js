@@ -1,21 +1,24 @@
 // async function to get the videoId from the URL
-async function getVideoIdFromUrl() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const videoId = urlParams.get('id');
-  return videoId;
-}
-let videoId;
-(async function() {
-  try {
-    videoId = await getVideoIdFromUrl(); // Use the videoId value here or perform other operations with it
+// async function getVideoIdFromUrl() {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const videoId = urlParams.get('id');
+//   return videoId;
+// }
+// let videoId;
+// (async function() {
+//   try {
+//     videoId = await getVideoIdFromUrl(); // Use the videoId value here or perform other operations with it
 
-    // Rest of your code...
-  } catch (error) {
-    console.error('Error while getting the videoId:', error);
-  }
-})();
+//     // Rest of your code...
+//   } catch (error) {
+//     console.error('Error while getting the videoId:', error);
+//   }
+// })();
 
 
+let videoId = sessionStorage.getItem('videoId');
+
+console.log(videoId)
   // 2. This code loads the IFrame Player API code asynchronously.
   var tag = document.createElement("script");
 

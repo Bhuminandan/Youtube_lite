@@ -64,7 +64,7 @@ headerItems.forEach((item) => {
     })
 })
 
-let videoGrid = document.querySelector(".main__right .main__video-grid");
+let videoGrid = document.querySelector(".main-section");
 console.log(videoGrid);
 
 
@@ -205,12 +205,12 @@ async function createVideoCard(videoList) {
             videoCard.innerHTML = innerHtmlCard;
             const newPageUrl = `vdetails.html?id=${videoId}`;
             videoCard.addEventListener("click", function () {
+                sessionStorage.setItem('videoId', `${videoId}`);
                 // Navigate to the new HTML page when the video card is clicked
                 window.location.href = newPageUrl;
             });
             videoGrid.appendChild(videoCard);
         }
-
         
     })
 
