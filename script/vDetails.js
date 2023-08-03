@@ -20,7 +20,6 @@
 
 let videoId = sessionStorage.getItem('videoId');
 
-console.log(videoId)
   // 2. This code loads the IFrame Player API code asynchronously.
   var tag = document.createElement("script");
 
@@ -65,20 +64,64 @@ console.log(videoId)
     player.stopVideo();
   }
 
-// async function getVideoDetails(videoId) {
-//   try {
-//     const baseUrl = 'https://www.googleapis.com/youtube/v3';
-//     const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your API key
-//     let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
-//     let response = await fetch(url);
-//     let videoDetails = await response.json();
-//     return videoDetails;
-//   } catch (error) {
-//     console.log(error);
-//     return null;
-//   }
-// }
+async function getVideoDetails(videoId) {
+  try {
+    const baseUrl = 'https://www.googleapis.com/youtube/v3';
+    const apiKey = 'AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk'; // Replace with your API key
+    let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
+    let response = await fetch(url);
+    let videoDetails = await response.json();
+    console.log(videoDetails);
+    
+    // Adding single video details dianamically
+
+    let title = document.querySelector(".title");
+    title.innerHTML = `${videoDetails.items[0].snippet.title}` 
+   
+    const viewCount = formatViewCount(videoDetails.items[0]?.statistics.viewCount);
+    const views = document.querySelector(".views")
+    views.innerHTML = `${viewCount}` 
+
+
+    let upLoadDate = convertYouTubeAPIDate(videoDetails.items[0].snippet.publishedAt);
+    let uploadDateElement = document.querySelector(".upload-date");
+    uploadDateElement.innerHTML = `${upLoadDate}`;
+
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+ 
+function formatViewCount(viewCount) {
+  if (viewCount >= 1000000) {
+    return `${Math.floor(viewCount / 1000000)}M •`;
+  } else if (viewCount >= 1000) {
+    return `${Math.floor(viewCount / 1000)}k •`;
+  } else {
+    return viewCount.toString();
+  }
+}
+
+
+function convertYouTubeAPIDate(apiDate) {
+  const months = [
+    "January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const dateObj = new Date(apiDate);
+  const month = months[dateObj.getMonth()];
+  const day = dateObj.getDate();
+  const year = dateObj.getFullYear();
+
+  return `${month} ${day}, ${year}`;
+}
+
+getVideoDetails(videoId);
 
 // function displayVideoDetails(videoDetails) {
+//   let videoDetails =  getChannelDetails(videoId);
 //   console.log(videoDetails);
 // }

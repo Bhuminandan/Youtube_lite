@@ -183,8 +183,18 @@ async function createVideoCard(videoList) {
             }
 
             const humanReadableDate = timeAgo(uploadDate);
+            const viewCount = formatViewCount(vdetails.items[0]?.statistics.viewCount);
 
-            let viewCount = vdetails.items[0]?.statistics.viewCount;
+            function formatViewCount(viewCount) {
+                if (viewCount >= 1000000) {
+                  return `${Math.floor(viewCount / 1000000)}M •`;
+                } else if (viewCount >= 1000) {
+                  return `${Math.floor(viewCount / 1000)}k •`;
+                } else {
+                  return viewCount.toString();
+                }
+              }
+
             let videoCard = document.createElement("div");
             videoCard.classList.add("video-card");
             let innerHtmlCard = `<div class="video-thumnail">
@@ -203,7 +213,7 @@ async function createVideoCard(videoList) {
                                       <div class="video-details2">
                                           <p class="channel-name">${vdetails.items[0].snippet.channelTitle}</p>
                                           <div class="video-views-upload">
-                                          <p class="views">${viewCount > 1000 ? `${Math.floor(viewCount / 1000)}k •` : viewCount}</p>
+                                          <p class="views">${viewCount}</p>
                                           <p class="upload-date">${humanReadableDate}</p>
                                           </div>
                                       </div>
