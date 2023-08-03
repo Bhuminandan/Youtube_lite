@@ -47,13 +47,7 @@ mobSearchBtn.addEventListener("click", () => {
     }
 })
 
-// searchBtn.addEventListener("click", () => {
-//     let searchString = searchInput.value.trim();
-//     if (searchString == "") {
-//         return;
-//     }
-//     getSearchResults(searchString);
-// })
+
 
 function getSearchStringFromLocalStorage() {
     return localStorage.getItem('searchString');
