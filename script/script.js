@@ -23,9 +23,6 @@
 //               </div>
 //             </div>
 // `
-
-// const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
-// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
 const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 

@@ -19,6 +19,8 @@
 
 // `
 
+
+
 let suggetionString;
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
@@ -40,6 +42,15 @@ mobSearchBtn.addEventListener("click", () => {
     window.location.href = newPageUrl;
 })
 
+
+
+
+let headerLogo = document.querySelector(".header__right img");
+
+headerLogo.addEventListener("click", () => {
+  let newPageUrl = "index.html"
+  window.location.href = newPageUrl;
+})
 
 
 // ---------------------- Video Content JS--------------------------------------------------
@@ -95,8 +106,6 @@ let videoId = sessionStorage.getItem('videoId');
   async function getVideoDetails(videoId) {
   try {
     const baseUrl = 'https://www.googleapis.com/youtube/v3';
-    // const apiKey = 'AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk'; // Replace with your API key
-    // const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
     const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
 
     let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;

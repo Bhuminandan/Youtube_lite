@@ -34,3 +34,29 @@ html {
 * {
   user-select: none;
 }
+
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Customize the scrollbar thumb (the draggable handle) */
+::-webkit-scrollbar-thumb {
+  background: var(--red-clr); /* Change to your desired color */
+  border-radius: 5px;
+}
+
+/* Customize the scrollbar track on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change to your desired hover color */
+}
+
+/* Customize the scrollbar corner */
+::-webkit-scrollbar-corner {
+  background: #f0f0f0; /* Change to your desired corner background color */
+}
+
+/* Customize the scrollbar track when it's in its default state (not being hovered or dragged) */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #aaa; /* Change to your desired default state color */
+}

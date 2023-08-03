@@ -22,6 +22,10 @@
   flex: 1;
 }
 
+.header__right img {
+  cursor: pointer;
+}
+
 .header__middle {
   display: flex;
   align-items: center;
