@@ -65,18 +65,16 @@ headerItems.forEach((item) => {
 })
 
 let videoGrid = document.getElementById("video-grid");
-console.log(videoGrid);
-
 
 /*
 @param {String} searchString
 */
 
 
-let initialVideoString = "Abhi and Niyu"
+let initialVideoString = "AbhiandNiyu"
 
-// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
-const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
+// const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
+const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
 getSearchResults(initialVideoString.trim());
