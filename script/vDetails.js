@@ -20,6 +20,19 @@
 // `
 
 
+const searchBtn = document.querySelector(".header___search > i");
+const searchInput = document.querySelector(".header___search > input");
+
+  searchBtn.addEventListener('click', () => {
+    let searchString = searchInput.value.trim();
+    if (searchString == '') {
+      return;
+    }
+    localStorage.setItem('searchString', searchString);
+    window.location.href = 'index.html';
+  });
+
+
 let mobSearchBtn = document.querySelector(".mob_search-div-details i");
 
 mobSearchBtn.addEventListener("click", () => {

@@ -24,6 +24,11 @@
 //             </div>
 // `
 
+// const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
+// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
+const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
+const baseUrl = `https://www.googleapis.com/youtube/v3`;
+
 
 const searchBtn = document.querySelector(".header___search > i");
 const searchInput = document.querySelector(".header___search > input");
@@ -46,13 +51,32 @@ mobSearchBtn.addEventListener("click", () => {
     }
 })
 
-searchBtn.addEventListener("click", () => {
-    let searchString = searchInput.value.trim();
-    if (searchString == "") {
-        return;
+// searchBtn.addEventListener("click", () => {
+//     let searchString = searchInput.value.trim();
+//     if (searchString == "") {
+//         return;
+//     }
+//     getSearchResults(searchString);
+// })
+
+function getSearchStringFromLocalStorage() {
+    return localStorage.getItem('searchString');
+  }
+
+  // Function to handle search on the first page
+  function handleSearchOnFirstPage() {
+    let searchString = getSearchStringFromLocalStorage();
+    if (searchString != null) {
+      // Remove the search string from local storage after retrieving it
+      localStorage.removeItem('searchString');
+      getSearchResults(searchString);
+    } else{
+        let initialVideoString = "AbhiandNiyu"
+        getSearchResults(initialVideoString.trim());
     }
-    getSearchResults(searchString);
-})
+  }
+
+  handleSearchOnFirstPage();
 
 
 
@@ -71,14 +95,8 @@ let videoGrid = document.getElementById("video-grid");
 */
 
 
-let initialVideoString = "AbhiandNiyu"
 
-// const apiKey = "AIzaSyAtq8C8WaRAboxSLrxmCk3qbfuvkLDUMXk";
-// const apiKey = "AIzaSyBXbSuqXJn-rjb-F-4X4lswQ85VMQVE4Ok";
-const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
-const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
-getSearchResults(initialVideoString.trim());
 
 async function getSearchResults(searchString) {
     try {
