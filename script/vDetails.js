@@ -106,7 +106,7 @@ function executeOtherCode(videoId) {
   async function getVideoDetails(videoId) {
     try {
       const baseUrl = 'https://www.googleapis.com/youtube/v3';
-      const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
+      const apiKey = "AIzaSyDEDueonKCRRnS1JSrlC__mOJgxW_h_Lx0";
 
       let url = `${baseUrl}/videos?key=${apiKey}&part=snippet,contentDetails,statistics&id=${videoId}`;
       let response = await fetch(url);
@@ -254,7 +254,7 @@ function executeOtherCode(videoId) {
 
 // ------------------------------ Video Side------------------
 
-const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
+const apiKey = "AIzaSyDEDueonKCRRnS1JSrlC__mOJgxW_h_Lx0";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
 async function getSearchResults(searchString) {
@@ -276,6 +276,7 @@ getSearchResults(suggetionString);
 
 
 let SmallvideoGrid = document.querySelector(".related-video-seggetions");
+
 
 
 function clearData() {

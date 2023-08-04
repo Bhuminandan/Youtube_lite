@@ -23,7 +23,7 @@
 //               </div>
 //             </div>
 // `
-const apiKey = "AIzaSyCgR97byU3rfXJ3p4ZmUWWGSTO0OBme4d8";
+const apiKey = "AIzaSyDEDueonKCRRnS1JSrlC__mOJgxW_h_Lx0";
 const baseUrl = `https://www.googleapis.com/youtube/v3`;
 
 const searchBtn = document.querySelector(".header___search > i");
@@ -33,6 +33,11 @@ const mobSearchBtn = document.querySelector(".mob_search-div");
 const moblogo = document.querySelector(".header__right");
 const searchBar = document.querySelector(".header__middle");
 const searchBarinput = document.querySelector(".header___search");
+
+searchBtn.addEventListener("click", () => {
+    let searchString = searchInput.value.trim();
+    getSearchResults(searchString);
+})
 
 let ismobSearchOpen = false;
 mobSearchBtn.addEventListener("click", () => {
@@ -61,7 +66,7 @@ function getSearchStringFromLocalStorage() {
       localStorage.removeItem('searchString');
       getSearchResults(searchString);
     } else{
-        let initialVideoString = "Videos Trending"
+        let initialVideoString = "Must Watch Investing Tips"
         getSearchResults(initialVideoString.trim());
     }
   }
@@ -90,7 +95,7 @@ let videoGrid = document.getElementById("video-grid");
 
 async function getSearchResults(searchString) {
     try {
-        let url = `${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=10`
+        let url = `${baseUrl}/search?key=${apiKey}&q=${searchString}&part=snippet&maxResults=20`
         const response = await fetch(url, {
             method: "GET"
         });
